@@ -1,0 +1,42 @@
+if game.PlaceId == 6299805723 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Project Hub | [🏝️ Summer UPD + Event] Anime Fighters Simulator", HidePremium = true, IntroEnable = false,IntroText = "Project Leak's", SaveConfig = true, ConfigFolder = "NewProject"})
+
+    -- Values
+    _G.dupe = true
+
+    -- Functions
+
+    function startdupe()
+        if _G.dupe == true then
+            local args = {
+            [1] = "\0" .. string.rep("B", 4200000)
+            }
+
+            game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("SetTutorialDone"):FireServer(unpack(args))
+      OrionLib:MakeNotification({
+	Name = "Starting dupe...",
+	Content = "Started dupe!",
+	Image = "rbxassetid://4483345998",
+	Time = 7
+})
+        end
+    end
+    -- Tabs
+    local DataTab = Window:MakeTab({
+        Name = "Rollback/dupe",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    -- Toggles
+    DataTab:AddToggle({
+        Name = "Start dupe",
+        Default = false,
+        Callback = function(Value)
+            _G.dupe = Value
+            startdupe()
+        end
+    })
+    OrionLib:Init()
+end
